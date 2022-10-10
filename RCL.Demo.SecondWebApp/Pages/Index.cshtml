@@ -1,0 +1,74 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid bg-light text-dark shadow rounded p-1">
+    <div class="container bg-dark text-light text-center p-5">
+        <h1 class="display-4"><i class="bi bi-bicycle"></i> AdventureWorks Bikes</h1>
+        <img class="img-fluid mt-5" src="images/banner.png" />
+        <h2 class="display-6 mt-2">Rent our bikes and have the ride of your life.</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6 mt-3 text-center">
+        <div class="card shadow rounded">
+            <div class="card-header">
+                <h3>Standard</h3>
+            </div>
+            <div class="card-body">
+                <img src="images/standard-bike.png" height="200" />
+            </div>
+            <div class="card-footer">
+                <div class="row mt-5">
+                    <div class="col-lg-6">
+                        <h5><span class="badge bg-danger text-light">$TT 60 / 2 days</span></h5>
+                        <p><a class="btn btn-lg btn-warning">Rent Now <i class="bi bi-credit-card"></i></a></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5><span class="badge bg-danger text-light">$US 10 / 2 days</span></h5>
+                        <p><a class="btn btn-lg btn-warning">Rent Now <i class="bi bi-credit-card"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mt-3 text-center">
+        <div class="card shadow rounded">
+            <div class="card-header">
+                <h3>Mountain Bike</h3>
+            </div>
+            <div class="card-body">
+                <img src="images/mountain-bike.png" height="200" />
+            </div>
+            <div class="card-footer">
+                <div class="row mt-5">
+                    <div class="col-lg-6">
+                        <h5><span class="badge bg-danger text-light">$TT 120 / 2 days</span></h5>
+                        <p><a class="btn btn-lg btn-warning">Rent Now <i class="bi bi-credit-card"></i></a></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <h5><span class="badge bg-danger text-light">$US 20 / 2 days</span></h5>
+                        <p><a class="btn btn-lg btn-warning">Rent Now <i class="bi bi-credit-card"></i></a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-info mt-5 mb-5 p-5 text-center">
+    <h4><i class="bi bi-gift"></i> Free biking when you book a room at <a href="https://rcl-demo-webapp.azurewebsites.net/" target="_blank">Contoso Eco Resort</a></h4>
+    <p>When you book a room, you will be able to rent a bike for free.</p>
+    @if(string.IsNullOrEmpty(User?.Identity?.Name))
+    {
+        <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn" class="btn btn-secondary">Sign in to redeem</a>
+    }
+    else
+    {
+        <h5>Click the button to see if you qualify</h5>
+        <p><a class="btn btn-success btn-lg" asp-page="/Offer/Index" asp-area="">Reedeem Offer <i class="bi bi-arrow-right-circle-fill"></i></a></p>
+    }
+</div>

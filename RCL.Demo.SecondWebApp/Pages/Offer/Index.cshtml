@@ -1,0 +1,27 @@
+﻿@page
+@model RCL.Demo.SecondWebApp.Pages.Offer.IndexModel
+@{
+    ViewData["Title"] = "Free Offer";
+}
+
+<div class="card shadow rounded">
+    <div class="card-header"><h3>@ViewData["Title"]</h3></div>
+    <div class="card-body">
+        @if (Model?.Bookings?.Count > 0)
+        {
+            <div class="alert alert-success">
+                <p>
+                    <i class="bi bi-check-circle"></i> Congratulations, @Model?.UserClaimsData?.DisplayName (@Model?.UserClaimsData.Email). You have qualified for this offer.
+                    Click the button below to claim your free offer.
+                </p>
+                <p><a class="btn btn-success" href="#"><i class="bi bi-gift"></i> Claim my free offer</a></p>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                <p>Soory, you do not qualify for this free offer.</p>
+            </div>
+        }
+    </div>
+</div>
